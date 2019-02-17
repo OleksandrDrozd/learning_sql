@@ -1,4 +1,4 @@
-# Transform original list into a list of tuples. From [1, 2, 3] to [(1,), (2,), (3,)]
+# Function transforms a given list into a list of tuples. From [1, 2, 3] to [(1,), (2,), (3,)].
 def create_list_of_tuples(original_list):
     new_list = []
     for i in original_list:
