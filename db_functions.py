@@ -1,4 +1,5 @@
 import config as c
+import list_functions as l
 
 
 # Function adds a single record to contact_details table.
@@ -42,11 +43,9 @@ def delete_a_record_from_contact_details(p_key):
 def delete_multiple_records_from_contact_details(list_of_ids):
 
     # Transform original list into a list of tuples. From [1, 2, 3] to [(1,), (2,), (3,)]
-    new_list = []
-    for i in list_of_ids:
-        new_list.append(tuple([i]))
+    new_list = l.create_list_of_tuples(list_of_ids)
 
-    # Run SQL delete query
+    # Run SQL delete query.
     c.my_cursor.executemany("DELETE FROM contact_details "
                             "WHERE "
                                 "primary_key = %s", (new_list))
